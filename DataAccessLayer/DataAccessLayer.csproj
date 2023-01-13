@@ -51,7 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concreate\Context.cs" />
+    <Compile Include="Concreate\Repositories\CategoryRepository.cs" />
+    <Compile Include="Concreate\Repositories\GenericRepository.cs" />
     <Compile Include="Migrations\202301111446077_mig1.cs" />
     <Compile Include="Migrations\202301111446077_mig1.designer.cs">
       <DependentUpon>202301111446077_mig1.cs</DependentUpon>
