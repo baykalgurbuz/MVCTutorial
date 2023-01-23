@@ -10,33 +10,35 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concreate.Repositories
 {
-    public class CategoryRepository<T> : IRepository<T> where T : class
+    public class CategoryRepository<T> : ICategoryDal
     {
-        Context context = new Context();
-        DbSet<T> _object;
-        public void Delete(T p)
+        Context c =new Context();
+        DbSet<Category> _object;
+        public void Delete(Category p)
         {
             _object.Remove(p);
+            c.SaveChanges();
         }
-        public void Insert(T p)
+
+        public void Insert(Category p)
         {
             _object.Add(p);
-            context.SaveChanges();
+            c.SaveChanges();
         }
-        public List<T> List()
+
+        public List<Category> List()
         {
             return _object.ToList();
         }
 
-        public List<T> List(Expression<Func<T, bool>> filter)
+        public List<Category> List(Expression<Func<Category, bool>> filter)
         {
-            return _object.Where(filter).ToList();
+            throw new NotImplementedException();
         }
 
-        public void Update(T p)
+        public void Update(Category p)
         {
-            context.SaveChanges();
+            c.SaveChanges();
         }
-
     }
 }
